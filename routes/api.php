@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('throttle:api')->group(function () {
+
+Route::get('/health', App\Http\Controllers\HelathController::class); //health endpoint
+Route::middleware('throttle:api')->group(function () { //api limter
     Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
     Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
 
